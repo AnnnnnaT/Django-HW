@@ -17,6 +17,13 @@ class Product(models.Model):
 
 class Order(models.Model):
    client = models.ForeignKey(Client, on_delete=models.CASCADE)
-   product = models.ForeignKey(Product, on_delete=models.CASCADE)
+   products = models.ManyToManyField(Product)
    total_price = models.DecimalField(max_digits=10, decimal_places=2)
    order_date = models.DateField()
+
+   def items(self):
+      products = []
+      for p in self.products:
+         products.append(p.name)
+      return products
+ 
