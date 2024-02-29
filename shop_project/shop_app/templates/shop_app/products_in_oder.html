@@ -7,10 +7,26 @@
 </head>
 <body>
     <h1>{{ client.name }} has ordered:</h1>
-    {% for product in products %}
-        <p>for the last WEEK: {{ product.week }}</p>
-        <p>for the last MONTH: {{ product.month }}</p>
-        <p>for the last YEAR: {{ product.year }}</p>
-    {% endfor %} 
+
+    <h2>Last WEEK:</h2>
+    <ul>
+        {% for product in products.for_last_week %}
+            <li>{{ product.name }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Last MONTH:</h2>
+    <ul>
+        {% for product in products.for_last_month %}
+            <li>{{ product.name }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Last YEAR:</h2>
+    <ul>
+        {% for product in products.for_last_year %}
+            <li>{{ product.name }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
