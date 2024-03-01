@@ -14,6 +14,7 @@ class Product(models.Model):
    price = models.DecimalField(max_digits=10, decimal_places=2)
    number = models.IntegerField()
    product_added = models.DateField()
+   image = models.ImageField(default=None)
 
 class Order(models.Model):
    client = models.ForeignKey(Client, on_delete=models.CASCADE)
