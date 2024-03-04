@@ -29,7 +29,10 @@ def product_edit(request, product_id):
             fs.save(image.name, image)
             return redirect("product_item")            
     else:
-        form = ProductForm()
+        if product_id
+            form = ProductForm(instance=Product.objects.get(id=product_id))
+        else:
+            form = ProductForm()
     return render(request, "blog/product_item.html", {"form": form})
 
 def orders_by(request, client_id):
