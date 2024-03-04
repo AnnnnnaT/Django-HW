@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from shop_app import views
 
 urlpatterns = [
     path('orders/<int:client_id>/', views.orders_by, name='orders_by'), 

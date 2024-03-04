@@ -8,6 +8,9 @@ class Client(models.Model):
     address = models.CharField(max_length=150)
     sign_up_date = models.DateField()
 
+    def __str__(self):
+      return f'{self.name}'
+
 class Product(models.Model):
    name = models.CharField(max_length=50)
    description = models.TextField()
@@ -16,15 +19,22 @@ class Product(models.Model):
    product_added = models.DateField()
    image = models.ImageField(default=None)
 
+   def __str__(self):
+       return f'{self.name}'
+
 class Order(models.Model):
    client = models.ForeignKey(Client, on_delete=models.CASCADE)
    products = models.ManyToManyField(Product)
    total_price = models.DecimalField(max_digits=10, decimal_places=2)
    order_date = models.DateField()
 
+   def __str__(self):
+      return f'{self.client}'
+
+
    def items(self):
       products = []
       for p in self.products:
          products.append(p.name)
       return products
- 
+  
