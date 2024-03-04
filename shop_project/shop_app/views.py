@@ -10,7 +10,6 @@ start_time = datetime.datetime(2023, 5, 2, 12, 0, 0)
 current_time = datetime.datetime.now()
 time_passed = current_time - start_time
 
-
 def product_edit(request, product_id = None):
     product = Product.objects.get(id=product_id)
     if request.method == "POST":
