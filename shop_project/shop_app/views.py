@@ -14,7 +14,7 @@ time_passed = current_time - start_time
 def product_edit(request, product_id=None):
     product = Product.objects.get(id=product_id)
     if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES, instance=product)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
             Product.objects.update_or_create(
