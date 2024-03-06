@@ -3,6 +3,7 @@ from .models import Product
 
 class ProductForm(forms.ModelForm):
     class Meta:
+        fields = ["name", "description", "price", "number", "product_added"]
         model = Product
         labels = {
             "name": "название",
